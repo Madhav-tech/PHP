@@ -8,10 +8,11 @@
             <th>Category</th>
             <th>Status</th>
             <th>Image</th>
-            <th>tags</th>
-            <th>Comment Count</th>
+            <!-- <th>tags</th> -->
+            <th>Comment</th>
             <th>Date</th>
-            <th>Delete Post</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
@@ -39,12 +40,14 @@
                 <td><?= $post_category ?></td>
                 <td><?= $post_status ?></td>
                 <td><img src="../image/<?= $post_image ?>" alt="<?= $post_category ?>" class="img-responsive" width="80"></td>
-                <td><?= $post_tags ?></td>
+                <!-- <td><?= $post_tags ?></td> -->
                 <td><?= $post_comment_count ?></td>
                 <td><?= $post_date ?></td>
                 <td>
                     <a  href="post.php?delete_post_id=<?= $post_id ?>" class="btn btn-warning mb-3" ><i class="glyphicon glyphicon-trash "></i></a>
-                    <!-- <a href="post.php?update_post_id=<?//= $post_id ?>" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></a> -->
+                  
+                </td>
+                <td>  <a href="post.php?source=update&update_post_id=<?=$post_id ?>" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></a>
                 </td>
             </tr>
 
