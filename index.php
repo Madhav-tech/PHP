@@ -1,7 +1,6 @@
-<?php include "include/db.php" ?>
 <?php include "include/header.php" ?>
 <!-- Navigation -->
-<?php include "include/navigation.php" ?>
+
 <!-- Page Content -->
 <div class="container">
 
@@ -27,18 +26,18 @@
                 $post_image = $row["post_image"];
             ?>
                 <h2>
-                <a href="postDetails.php?post_id=<?=$post_id ?>"><?php echo  $post_title ?> </a>
+                    <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
                 </h2>
                 <p class="lead">
-                   <small> by</small>
-                   <a href="postDetails.php?post_id=<?=$post_id ?>"><?php echo  $post_author ?></a>
+                    <small> by</small>
+                    <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
                 <hr>
                 <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="800" alt="">
                 <hr>
-                <p><?php echo  substr($post_content,0,60) ?><strong> . . . .</strong></p>
-                <a class="btn btn-primary" href="postDetails.php?post_id=<?=$post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <p><?php echo  substr($post_content, 0, 60) ?><strong> . . . .</strong></p>
+                <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
             <?php   } //while loop ended 
             ?>
@@ -48,4 +47,4 @@
     </div>
     <!-- /.row -->
     <hr>
-    <?php include "include/footer.php" ?> 
+    <?php include "include/footer.php" ?>

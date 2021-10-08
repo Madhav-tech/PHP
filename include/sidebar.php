@@ -1,4 +1,4 @@
-<?php include_once "DBFunction/GetAllCategory.php";?>
+<?php ?>
 <div class="col-md-4">
     <!-- Blog Search Well -->
     <div class="well">
@@ -22,19 +22,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="list-unstyled">
-                <li><a href='index.php'>All</a> </li>
-                <?php
-                $categories_data = getAllCategories();
-                while ($row = mysqli_fetch_assoc($categories_data)) {
-                    $title = $row["cat_title"];
-                    $id = $row["cat_id"];
-                    echo "<li><a href='search.php?cat_id=$id'>{$title}</a> </li>";
-                }
-
-                ?>
+                    <li><a href='index.php'>All</a> </li>
+                    <?php
+                    $categoriesTableObj = new CategoryTable();
+                    $catResult = $categoriesTableObj->getAllCategories($connection);
+                    while ($categoryPojo = $catResult->fetch_object('Category')) {
+                        $title = $categoryPojo->getCat_title();
+                        $id = $categoryPojo->getCat_id();
+                        echo "<li><a href='search.php?cat_id=$id'>{$title}</a> </li>";
+                    }
+                    ?>
                 </ul>
             </div>
-           
+
         </div>
         <!-- /.row -->
     </div>

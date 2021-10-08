@@ -1,7 +1,6 @@
-<?php include "include/db.php" ?>
+
 <?php include "include/header.php" ?>
-<!-- Navigation -->
-<?php include "include/navigation.php" ?>
+
 <!-- Page Content -->
 <div class="container">
     <div class="row">
@@ -26,6 +25,7 @@
             if ($row_count > 0) {
                 //loop to print the post details
                 while ($row = mysqli_fetch_assoc($posts_data)) {
+                    $post_id = $row["post_id"];
                     $post_title = $row["post_title"];
                     $post_author = $row["post_author"];
                     $post_date = $row["post_date"];
@@ -33,18 +33,18 @@
                     $post_image = $row["post_image"];
             ?>
                     <h2>
-                        <a href="#"><?php echo  $post_title ?> </a>
+                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
                     </h2>
                     <p class="lead">
                         <small> by</small>
-                        <a href="index.php"><?php echo  $post_author ?></a>
+                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
                     <hr>
                     <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="800" alt="">
                     <hr>
                     <p><?php echo  $post_content ?></p>
-                    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <hr>
             <?php   } //while loop ended 
             } else {

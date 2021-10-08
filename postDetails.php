@@ -1,8 +1,7 @@
-<?php include "include/db.php" ?>
+
 <?php include "include/header.php" ?>
 <?php include "DBFunction/PostAllFunction.php" ?>
-<!-- Navigation -->
-<?php include "include/navigation.php" ?>
+
 <!-- Page Content -->
 <div class="container">
     <hr>

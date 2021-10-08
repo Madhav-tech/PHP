@@ -1,6 +1,7 @@
 <?php include "include/header.php";
 include "../DBFunction/GetAllCategory.php";
 include "../DBFunction/PostAllFunction.php";
+include_once "../DBFunction/EntityClass/CategoryEntity.php";
 $msg = "";
 
 //delete a Post

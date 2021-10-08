@@ -21,7 +21,8 @@ if (isset($_POST['create_post'])) {
         $msg = "Post Submitted";
     }
 } 
-    $categories_data = getAllCategories();
+$categoriesTableObj = new CategoryTable();
+$catResult = $categoriesTableObj->getAllCategories($connection);
 
 ?>
 
@@ -40,9 +41,9 @@ if (isset($_POST['create_post'])) {
                     <!-- <input type="text" class="form-control" name="post_category_id" required> -->
                     <select name="post_category_id" id="post_category_id" class="form-control">
                         <?php
-                        while ($row = mysqli_fetch_assoc($categories_data)) {
-                            $cat_id = $row['cat_id'];
-                            $cat_title = $row['cat_title'];
+                         while ($categoryPojo = $catResult->fetch_object('Category')) {
+                            $cat_title = $categoryPojo->getCat_title();
+                            $cat_id = $categoryPojo->getCat_id();
                             echo "<option value=$cat_id>$cat_title</option>";
                         }
                         ?>

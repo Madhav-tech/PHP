@@ -41,10 +41,13 @@ if (isset($_POST['submit_comment'])) {
 <!-- Posted Comments -->
 <!-- Comment -->
 <?php
-    $query = "select * from comments where comment_post_id = $post_id";
-    $comment_data = mysqli_query($connection, $query);
-    //print_r($posts_data) ;
-    //loop to print the post details
+$query = "select * from comments where comment_post_id = $post_id";
+$comment_data = mysqli_query($connection, $query);
+//print_r($posts_data) ;
+//loop to print the post details
+$no_of_row = mysqli_num_rows($comment_data);
+
+if ($no_of_row > 0) {
     while ($row = mysqli_fetch_assoc($comment_data)) {
         $comment_id = $row["comment_id"];
         $comment_author = $row["comment_author"];
@@ -54,19 +57,23 @@ if (isset($_POST['submit_comment'])) {
         $comment_content = $row["comment_content"];
 
 
-    ?>
-<div class="media">
-    
-        <a class="pull-left" href="#">
-            <img class="media-object" src="http://placehold.it/64x64" alt="">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading"><?= $comment_author ?>
-                <small>Commented on <?= $comment_date ?></small>
-            </h4>
-            <?= $comment_content ?>
-        </div>
-       
-</div>
+?>
+        <div class="media">
 
-<?php } ?>
+            <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><?= $comment_author ?>
+                    <small>Commented on <?= $comment_date ?></small>
+                </h4>
+                <?= $comment_content ?>
+            </div>
+
+        </div>
+
+<?php }
+} else {
+    echo "<h4>No comments found</h4>";
+}
+?>

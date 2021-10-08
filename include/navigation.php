@@ -1,4 +1,5 @@
-<?php include "DBFunction/GetAllCategory.php";?>
+<?php include "DBFunction/GetAllCategory.php";
+include "DBFunction/EntityClass/CategoryEntity.php"; ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,13 +16,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <?php 
-                $categories_data = getAllCategories();
-                while ($row = mysqli_fetch_assoc($categories_data)) {
-                    $title = $row["cat_title"];
+                <?php
+                $categoriesTableObj = new CategoryTable();
+                $catResult = $categoriesTableObj->getAllCategories($connection);
+                while ($categoryPojo = $catResult->fetch_object('Category')) {
+                    $title = $categoryPojo->getCat_title();
                     echo "<li><a href='#'>{$title}</a> </li>";
                 }
-
                 ?>
                 <li><a href='admin'>Admin</a> </li>
             </ul>

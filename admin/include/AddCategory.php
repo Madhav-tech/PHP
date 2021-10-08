@@ -3,15 +3,17 @@
 
     if (isset($_POST["add_cat"])) {
         if (trim($_POST["cat_title"])) {
-            $cat_title =  $_POST["cat_title"];
-            $category_data = getAllCategoriesFromTitle($cat_title);
-            if (mysqli_num_rows($category_data) > 0) {
+            $catPojo = new Category();
+            $catTable = new CategoryTable();
+
+            $catPojo->setCat_title($_POST["cat_title"]);
+
+            $catResult = $catTable->getAllCategoriesFromTitle($connection,$catPojo->getCat_title());
+            if (mysqli_num_rows($catResult) > 0) {
                 $msg = "<span class='text-danger'>Category already Present<br><small>Enter a different one </small></span>";
             } else {
-                if (!insertIntoCategoryTable($cat_title)) {
-                    die(mysqli_error($connection));
-                }
-                $msg = "Category <strong>{$cat_title}</strong> added successfully";
+                $catInsertResult = $catTable->insertIntoCategoryTable($connection,$catPojo);
+                $msg = "Category <strong>{$catPojo->getCat_title()}</strong> added successfully";
             }
         } else {
             echo "Please enter a category";

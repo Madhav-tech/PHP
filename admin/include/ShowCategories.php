@@ -10,10 +10,11 @@
     </thead>
     <tbody>
         <?php
-        $category_data = getAllCategories();
-        while ($row = mysqli_fetch_assoc($category_data)) {
-            $id = $row["cat_id"];
-            $title = $row["cat_title"];
+        $categoriesTableObj = new CategoryTable();
+        $catResult = $categoriesTableObj->getAllCategories($connection);
+        while ($categoryPojo = $catResult->fetch_object('Category')) {
+            $title = $categoryPojo->getCat_title();
+            $id = $categoryPojo->getCat_id();
 
         ?>
             <tr>
@@ -25,7 +26,6 @@
                 <td>
                     <a href="categories.php?delete_cat_id=<?= $id ?>" class='btn btn-danger btn-sm'>Delete</a>
                 </td>
-                <!--   <button type='submit' class='btn btn-danger' name='update' value=<?= $id ?> >Delete</button> -->
             </tr>
 
         <?php

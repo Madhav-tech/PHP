@@ -1,3 +1,7 @@
+<?php include_once "Database_classes/dbconfig.php";
+    $db = new DbConfig();
+    $connection = $db->getConnection();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,3 +33,5 @@
 </head>
 
 <body>
+    <!-- Navigation -->
+<?php include "include/navigation.php" ?>

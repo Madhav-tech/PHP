@@ -3,9 +3,10 @@
     $value_cat_title = "";
     if (isset($_GET["update_cat_id"])) {
         $value_cat_id = $_GET["update_cat_id"];
-        $category_data = getCategoryFromId($value_cat_id);
-        $row = mysqli_fetch_assoc($category_data);
-        $value_cat_title = $row['cat_title'];
+        $catTableObj = new CategoryTable();
+        $catResult = $catTableObj->getCategoryFromId($connection, $value_cat_id);
+        $categoryPojo = $catResult->fetch_object('Category');
+        $value_cat_title = $categoryPojo->getCat_title();
     }
     ?>
     <form action="categories.php" method="POST">

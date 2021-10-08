@@ -1,5 +1,8 @@
-<?php ob_start(); ?> 
-<?php include "../include/db.php" ?>
+<?php ob_start(); ?>
+<?php include_once "../Database_classes/dbconfig.php";
+$db = new DbConfig();
+$connection = $db->getConnection();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
