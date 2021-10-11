@@ -11,7 +11,7 @@
     </h1>
     <div class="row ">
         <!-- Blog Entries Column -->
-        <div class="col-md-7">
+        <div class="col-lg-8">
 
             <?php
             $post_id = $_GET['post_id'];
@@ -37,7 +37,7 @@
             <?php
             ?>
         </div>
-        <div class="col-md-5  ">
+        <div class="col-lg-4">
             <img class="img-responsive img-rounded" src="image/<?php echo $post_image;  ?>" width="400" height="200" alt="">
             <hr>
             <cite>
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="row ">
-        <div class="col-md-7">
+        <div class="col-md-8">
             <!-- Comments Form -->
             <?php include "include/postAndShowComments.php" ?>
         </div>

@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">CMS Admin</a>
+    <a class="navbar-brand" href="index.php">CMS Admin</a>
 </div>
 <!--  top nav -->
 <ul class="nav navbar-right top-nav ">

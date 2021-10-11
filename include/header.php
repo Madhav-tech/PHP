@@ -1,6 +1,6 @@
 <?php include_once "Database_classes/dbconfig.php";
-    $db = new DbConfig();
-    $connection = $db->getConnection();
+$db = new DbConfig();
+$connection = $db->getConnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +16,10 @@
     <title>Blog Home - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom CSS -->
-    <link href="css/blog-home.css" rel="stylesheet">
+    <!--  -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,10 +28,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- CSS only -->
- 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link href="css/mycss.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body style="gradi">
     <!-- Navigation -->
-<?php include "include/navigation.php" ?>
+    <?php include "include/navigation.php" ?>

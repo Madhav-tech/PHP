@@ -34,7 +34,7 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
                 <hr>
-                <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="800" alt="">
+                <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="700" height="300" alt="">
                 <hr>
                 <p><?php echo  substr($post_content, 0, 60) ?><strong> . . . .</strong></p>
                 <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>

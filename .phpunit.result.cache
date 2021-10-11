@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":[]}
+{"version":1,"defects":{"DbConfigTest::testGetConnection":4,"dbconfigTest::testGetConnection":4,"GetAllCategoryTest::testGetCategory":3,"GetAllCategoryTest::testGetCategoryFromId":4},"times":{"DbConfigTest::testGetConnection":0.02,"dbconfigTest::testGetConnection":0.021,"categoryTableTest::testGetCategory":1.278,"GetAllCategoryTest::testGetCategory":0.035,"GetAllCategoryTest::testGetCategoryFromId":0.005}}

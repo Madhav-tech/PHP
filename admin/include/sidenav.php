@@ -3,12 +3,12 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li>
-            <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
 
 
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#post"><i class="fa fa-fw fa-arrows-v"></i> Post <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="#" data-toggle="collapse" data-target="#post"><i class="fa fa-fw fa-arrows-v"></i> Post <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="post" class="collapse">
                 <li>
                 <?php $source = '' ?>
@@ -28,7 +28,7 @@
             <a href="comments.php"><i class="fa fa-fw fa-file"></i> Comment</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#post"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#users"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="users" class="collapse">
                 <li>
                     <a href="#">1</a>
@@ -39,7 +39,7 @@
             </ul>
         </li>
         <li>
-            <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+            <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
         </li>
     </ul>
 </div>

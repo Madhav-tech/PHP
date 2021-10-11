@@ -1,0 +1,10 @@
+body {
+    background-image: linear-gradient(to bottom right, rgb(248, 194, 194), rgba(255,0,0,0), rgb(196, 139, 139));
+  }
+  /* temp {
+    text-shadow: 2px 2px rgb(223, 219, 219);
+  } */
+  nav {
+    background-image: linear-gradient( rgb(105, 159, 230), rgb(247, 248, 248), rgb(228, 243, 247));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
