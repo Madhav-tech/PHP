@@ -23,10 +23,6 @@
                         Blank Page
                         <small>Author</small>
                     </h1>
-                    <!-- <?php if ($connection) {
-                        echo "<h1>connnected</h1>";
-                    } ?> -->
-
                 </div>
             </div>
             <!-- /.row -->

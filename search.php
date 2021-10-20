@@ -1,4 +1,3 @@
-
 <?php include "include/header.php" ?>
 
 <!-- Page Content -->
@@ -13,6 +12,7 @@
             <!-- First Blog Post -->
             <?php
             $query = "";
+            $count=0;
             if (isset($_POST["submit"])) {
                 $search = $_POST["search"];
                 $query = "Select * from posts where post_tags LIKE '%$search%'";
@@ -31,23 +31,29 @@
                     $post_date = $row["post_date"];
                     $post_content = $row["post_content"];
                     $post_image = $row["post_image"];
+                    $post_status = $row["post_status"];
+
+                    if ($post_status === "Approved") {
+                        $count++;
             ?>
-                    <h2>
-                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
-                    </h2>
-                    <p class="lead">
-                        <small> by</small>
-                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
-                    </p>
-                    <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
-                    <hr>
-                    <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="800" alt="">
-                    <hr>
-                    <p><?php echo  $post_content ?></p>
-                    <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <hr>
-            <?php   } //while loop ended 
-            } else {
+                        <h2>
+                            <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
+                        </h2>
+                        <p class="lead">
+                            <small> by</small>
+                            <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
+                        </p>
+                        <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
+                        <hr>
+                        <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="700" height="300" alt="">
+                        <hr>
+                        <p><?php echo  $post_content ?></p>
+                        <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <hr>
+            <?php } 
+                } //while loop ended 
+            } 
+            if($row_count ==0 || $count ===0){
                 echo "<h3>No post found</h3><br>";
             }
             ?>

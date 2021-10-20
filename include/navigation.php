@@ -27,11 +27,8 @@ include "DBFunction/EntityClass/CategoryEntity.php"; ?>
                         ?>
                     </ul>
                 </li>
-
                 <li class='nav-item '><a class='nav-link' href='admin'>Admin</a> </li>
                 <li class='nav-item '><a class='nav-link' href='#'>Help</a> </li>
-
-
             </ul>
             <form class="d-flex" action="search.php" method="post">
                 <input type="text" class="form-control me-2"" name="search" placeholder="Blog Search">

@@ -1,21 +1,9 @@
 <?php ?>
-<div class="col-md-4">
+<div class="col-md-4 bg-light ">
     <!-- Blog Search Well -->
-    <div class="well p-3">
-        <!-- <h4>Blog Search</h4> -->
-        <!-- <form action="search.php" method="post">
-            <div class="input-group">
-                <input type="text" class="form-control" name="search">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit" name="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
-        </form> -->
-        <!-- /.input-group -->
+    <div class="well -3">
+       
     </div>
-
     <!-- Blog Categories Well -->
     <div class="well p-3">
         <h4>Blog Categories</h4>

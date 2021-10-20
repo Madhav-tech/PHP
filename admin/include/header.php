@@ -1,5 +1,9 @@
-<?php ob_start(); ?>
-<?php include_once "../Database_classes/dbconfig.php";
+<?php ob_start(); session_start(); ?>
+
+
+<?php 
+include "../Database_Classes/dbconfig.php";
+
 $db = new DbConfig();
 $connection = $db->getConnection();
 ?>

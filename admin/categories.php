@@ -1,6 +1,8 @@
 <?php include "include/header.php";
 include_once "../DBFunction/GetAllCategory.php";
 include_once "../DBFunction/EntityClass/CategoryEntity.php";
+
+
 $msg = "";
 
 
@@ -49,6 +51,7 @@ if (isset($_POST["update"]) && trim($_POST["cat_title"])) {
                         Welcome Admin
                         <small>Author</small>
                     </h1>
+                  
                     <div class="col-sm-6">
                         <!-- Add Category -->
                         <?php include "include/AddCategory.php" ?>

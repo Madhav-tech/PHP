@@ -1,4 +1,5 @@
 <?php include "include/header.php";
+
 include "../DBFunction/GetAllCategory.php";
 include "../DBFunction/PostAllFunction.php";
 include_once "../DBFunction/EntityClass/CategoryEntity.php";
@@ -49,6 +50,21 @@ if (isset($_POST["update_post"])) {
         $msg = "Post Updated";
     }
 }
+
+
+//APPROVE A COMMENT
+if (isset($_GET["approve_post_id"])) {
+    $status = "Approved";
+    $post_id = $_GET["approve_post_id"];
+
+    $update_result = approvePost($status, $post_id);
+    if (!$update_result) {
+        die(mysqli_error($connection));
+    } else { 
+        $msg = "Post Approved";
+    }
+}
+
 ?>
 <div id="wrapper">
     <!-- Navigation -->

@@ -15,7 +15,7 @@
             <?php
             $query = "select * from posts";
             $posts_data = mysqli_query($connection, $query);
-
+            $count = 0;
             //loop to print the post details
             while ($row = mysqli_fetch_assoc($posts_data)) {
                 $post_id = $row["post_id"];
@@ -24,22 +24,30 @@
                 $post_date = $row["post_date"];
                 $post_content = $row["post_content"];
                 $post_image = $row["post_image"];
+                $post_status = $row["post_status"];
+                
+                if ($post_status === "Approved") {
+                    $count++;
             ?>
-                <h2>
-                    <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
-                </h2>
-                <p class="lead">
-                    <small> by</small>
-                    <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
-                <hr>
-                <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="700" height="300" alt="">
-                <hr>
-                <p><?php echo  substr($post_content, 0, 60) ?><strong> . . . .</strong></p>
-                <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-                <hr>
-            <?php   } //while loop ended 
+                    <h2>
+                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>
+                    </h2>
+                    <p class="lead">
+                        <small> by</small>
+                        <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_author ?></a>
+                    </p>
+                    <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo  $post_date ?></p>
+                    <hr>
+                    <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="700" height="300" alt="">
+                    <hr>
+                    <p><?php echo  substr($post_content, 0, 60) ?><strong> . . . .</strong></p>
+                    <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <hr>
+            <?php }
+            } //while loop ended
+            if($count ===0){
+                echo "<h3>No Post Found</h3>";
+            } 
             ?>
         </div>
         <!-- Blog Sidebar Widgets Column -->

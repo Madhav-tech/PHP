@@ -20,7 +20,8 @@ if (isset($_GET['update_post_id'])) {
 
    
 }
-$categories_data = getAllCategories();
+$catTable = new CategoryTable();
+$categories_data = $catTable->getAllCategories($connection);
 
 
 

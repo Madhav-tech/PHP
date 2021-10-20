@@ -48,5 +48,17 @@ function updatePost($post_id, $post_category_id, $post_title, $post_author, $pos
     return true;
 }
 
+function approvePost($status, $post_id)
+{
+    global $connection;
+    $query  = "UPDATE posts SET post_status = '$status'  where post_id = '$post_id'";
+    $res = mysqli_query($connection, $query);
+
+    if (!$res) {
+        die("Query Faild<br>" . mysqli_error($connection));
+    }
+    return true;
+}
+
 
 

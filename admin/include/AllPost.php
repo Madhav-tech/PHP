@@ -8,18 +8,17 @@
             <th>Category</th>
             <th>Status</th>
             <th>Image</th>
-            <!-- <th>tags</th> -->
             <th>Comment</th>
             <th>Date</th>
             <th>Delete</th>
             <th>Update</th>
+            <th>Approve</th>
         </tr>
     </thead>
     <tbody>
         <?php
         $query = "select * from posts join categories on post_category_id = cat_id";
         $posts_data = mysqli_query($connection, $query);
-        //print_r($posts_data) ;
         //loop to print the post details
         while ($row = mysqli_fetch_assoc($posts_data)) {
             $post_id = $row["post_id"];
@@ -36,7 +35,7 @@
             <tr>
                 <td><?= $post_id ?></td>
                 <td><?= $post_author ?></td>
-                <td><?= $post_title ?></td>
+                <td> <a href="../postDetails.php?post_id=<?= $post_id ?>"><?= $post_title ?></a></td>
                 <td><?= $post_category ?></td>
                 <td><?= $post_status ?></td>
                 <td><img src="../image/<?= $post_image ?>" alt="<?= $post_category ?>" class="img-responsive" width="80"></td>
@@ -48,6 +47,8 @@
                   
                 </td>
                 <td>  <a href="post.php?source=update&update_post_id=<?=$post_id ?>" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></a>
+                </td>
+                <td> <a href="post.php?approve_post_id=<?= $post_id ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
                 </td>
             </tr>
 
