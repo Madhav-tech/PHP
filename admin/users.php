@@ -1,19 +1,15 @@
 <?php include "include/header.php";
+include "../DBFunction/UsersDb.php";
 
 
 $msg = "";
-//delete a Comment
-// if (isset($_GET["delete_comment_id"])) {
-//     $comment_id = $_GET["delete_comment_id"];
-//     $post_id = $_GET["post_id"];
-//     //deletePost()---> PostAllFunction
-//     if (deleteComment($comment_id)) {
-//         $msg = "Comment deleted";
-//         //decrease coment count
-//         $query = "Update posts Set post_comment_count = post_comment_count - 1 where post_id = '$post_id'";
-//         mysqli_query($connection, $query);
-//     } 
-// }
+// delete a User
+if (isset($_GET["delete_user_id"])) {
+    $user_id = $_GET["delete_user_id"];
+    if (deleteUser($user_id)) {
+        $msg = "User deleted";
+    }
+}
 
 //update a User
 if (isset($_POST["update_user"])) {
@@ -57,17 +53,16 @@ if (isset($_POST["update_user"])) {
 }
 
 ?>
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Top Menu Items -->
-        <?php include "include/topnav.php" ?>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php include "include/sidenav.php"; ?>
-        <!-- /.navbar-collapse -->
-    </nav>
-    <div id="page-wrapper">
-        <div class="container-fluid">
+
+<!-- Navigation -->
+
+
+
+
+<div class="row">
+
+    <div class="p-3">
+        <div class="container">
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
@@ -82,7 +77,7 @@ if (isset($_POST["update_user"])) {
                     }
                     switch ($source) {
                         case "add":
-                            //include "include/AddPost.php";
+                            include "users/AddUser.php";
                             break;
                         case "update":
                             include "users/UpdateUser.php";
@@ -97,4 +92,7 @@ if (isset($_POST["update_user"])) {
         </div> <!-- /.container-fluid -->
     </div><!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
+
+
+
 <?php include "include/footer.php"; ?>

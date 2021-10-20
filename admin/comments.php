@@ -13,7 +13,7 @@ if (isset($_GET["delete_comment_id"])) {
         //decrease coment count
         $query = "Update posts Set post_comment_count = post_comment_count - 1 where post_id = '$post_id'";
         mysqli_query($connection, $query);
-    } 
+    }
 }
 
 //APPROVE A COMMENT
@@ -42,17 +42,11 @@ if (isset($_GET["draft_comment_id"])) {
 }
 
 ?>
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Top Menu Items -->
-        <?php include "include/topnav.php"; ?>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php include "include/sidenav.php"; ?>
-        <!-- /.navbar-collapse -->
-    </nav>
-    <div id="page-wrapper">
-        <div class="container-fluid">
+
+<div class="row">
+
+    <div class="p-3">
+        <div class="container">
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
@@ -82,4 +76,5 @@ if (isset($_GET["draft_comment_id"])) {
         </div> <!-- /.container-fluid -->
     </div><!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
+
 <?php include "include/footer.php"; ?>

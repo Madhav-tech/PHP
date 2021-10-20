@@ -1,18 +1,18 @@
-<table class="table table-bordered table-hover table-responsive">
+<table class="table table-bordered table-hover table-success table-responsive">
     <caption>All Users</caption>
     <thead>
-        <tr >
-            <th >Id</th>
+        <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
             <th>Role</th>
             <th class="text-center">Edit</th>
-
+            <th class="text-center">Delete</th>
             <!--<th>Date</th>
             <th>Approved</th>
-            <th>Draft</th>
-            <th>Delete</th> -->
+            <th>Draft</th>-->
+
         </tr>
     </thead>
     <tbody>
@@ -42,10 +42,10 @@
                 <td><?= $comment_date ?></td>
                 
                 <td> <a href="comments.php?draft_comment_id=<?= $comment_id ?>" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i></a>
+                </td>-->
+                <td class="text-center">
+                    <a href="users.php?delete_user_id=<?= $user_id ?>" class="btn btn-danger mb-3"><i class="bi bi-trash "></i></a>
                 </td>
-                <td>
-                    <a href="comments.php?delete_comment_id=<?= $comment_id ?>&post_id=<?= $post_id ?>" class="btn btn-danger mb-3"><i class="glyphicon glyphicon-trash "></i></a>
-                </td> -->
             </tr>
         <?php
         }

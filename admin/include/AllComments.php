@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover table-responsive">
+<table class="table table-bordered table-hover table-success table-responsive">
     <caption>All Comments</caption>
     <thead>
         <tr>
@@ -38,12 +38,12 @@
                 <td><?= $comment_content ?></td>
                 <td><?php echo $comment_status==="Approved" ?"<p class = 'text-success'>$comment_status</p>":"<p class = 'text-danger'>$comment_status</p>" ?></td>
                 <td><?= $comment_date ?></td>
-                <td> <a href="comments.php?approve_comment_id=<?= $comment_id ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                <td class="text-center"> <a href="comments.php?approve_comment_id=<?= $comment_id ?>" class="btn btn-success"><i class="bi bi-check"></i></a>
                 </td>
-                <td> <a href="comments.php?draft_comment_id=<?= $comment_id ?>" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i></a>
+                <td> <a href="comments.php?draft_comment_id=<?= $comment_id ?>" class="btn btn-warning"><i class="bi bi-x"></i></a>
                 </td>
                 <td>
-                    <a href="comments.php?delete_comment_id=<?= $comment_id ?>&post_id=<?= $post_id ?>" class="btn btn-danger mb-3"><i class="glyphicon glyphicon-trash "></i></a>
+                    <a href="comments.php?delete_comment_id=<?= $comment_id ?>&post_id=<?= $post_id ?>" class="btn btn-danger mb-3"><i class="bi bi-trash "></i></a>
                 </td>
             </tr>
         <?php

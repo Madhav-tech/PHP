@@ -1,21 +1,10 @@
 <?php include "include/header.php";
 ?>
 
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-        <!-- Top Menu Items -->
-        <?php include "include/topnav.php"; ?>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php include "include/sidenav.php"; ?>
-        <!-- /.navbar-collapse -->
-    </nav>
-
-    <div id="page-wrapper">
-
-        <div class="container-fluid">
-
+<div class="row ">
+    <div class="p-3">
+        <div class="container">
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
@@ -31,5 +20,6 @@
     </div>
     <!-- /#page-wrapper -->
 </div>
+
 <!-- /#wrapper -->
 <?php include "include/footer.php"; ?>

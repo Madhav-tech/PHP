@@ -60,23 +60,18 @@ if (isset($_GET["approve_post_id"])) {
     $update_result = approvePost($status, $post_id);
     if (!$update_result) {
         die(mysqli_error($connection));
-    } else { 
+    } else {
         $msg = "Post Approved";
     }
 }
 
 ?>
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Top Menu Items -->
-        <?php include "include/topnav.php"; ?>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php include "include/sidenav.php"; ?>
-        <!-- /.navbar-collapse -->
-    </nav>
-    <div id="page-wrapper">
-        <div class="container-fluid">
+
+
+<div class="row">
+
+    <div class="p-3">
+        <div class="container">
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
@@ -105,4 +100,5 @@ if (isset($_GET["approve_post_id"])) {
         </div> <!-- /.container-fluid -->
     </div><!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
+
 <?php include "include/footer.php"; ?>

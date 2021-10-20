@@ -22,12 +22,12 @@
     ?>
 
     <form action="" method="POST">
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="cat_title">Enter Category</label>
             <input class="form-control " type="text" name="cat_title" id="cat_title">
 
         </div>
-        <div class="form-group">
+        <div class="form-group mb-3">
             <input type="submit" class="btn btn-primary mb-3" name="add_cat" value="Add">
         </div>
     </form>

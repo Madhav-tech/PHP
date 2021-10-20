@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover table-responsive">
+<table class="table table-bordered table-hover table-success table-responsive">
     <caption>All Post</caption>
     <thead>
         <tr>
@@ -43,12 +43,12 @@
                 <td><?= $post_comment_count ?></td>
                 <td><?= $post_date ?></td>
                 <td>
-                    <a  href="post.php?delete_post_id=<?= $post_id ?>" class="btn btn-warning mb-3" ><i class="glyphicon glyphicon-trash "></i></a>
+                    <a  href="post.php?delete_post_id=<?= $post_id ?>" class="btn btn-warning mb-3" ><i class="bi bi-trash "></i></a>
                   
                 </td>
-                <td>  <a href="post.php?source=update&update_post_id=<?=$post_id ?>" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></a>
+                <td>  <a href="post.php?source=update&update_post_id=<?=$post_id ?>" class="btn btn-info"><i class="bi bi-plus"></i></a>
                 </td>
-                <td> <a href="post.php?approve_post_id=<?= $post_id ?>" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></a>
+                <td> <a href="post.php?approve_post_id=<?= $post_id ?>" class="btn btn-success"><i class="bi bi-check"></i></a>
                 </td>
             </tr>
 

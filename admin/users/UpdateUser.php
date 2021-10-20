@@ -44,7 +44,7 @@ if (isset($_GET['update_user_id'])) {
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">Image</label>
-                    <input type="file" class="form-control-file mb-3" name="image"><br>
+                    <input type="file" class="form-control mb-3" name="image"><br>
                     <img class="img-responsive" src="../image/<?= $img ?>" alt="<?= $img ?>" width="100">
 
                 </div>

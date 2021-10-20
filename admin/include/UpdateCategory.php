@@ -10,13 +10,13 @@
     }
     ?>
     <form action="categories.php" method="POST">
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="cat_title">Update Category</label>
             <input class="form-control " type="text" name="cat_title" id="cat_update_title" value="<?php echo $value_cat_title; ?>">
             <input type="text" name="cat_id" value="<?php echo $value_cat_id; ?>" hidden>
 
         </div>
-        <div class="form-group">
+        <div class="form-group mb-3">
             <input type="submit" class="btn btn-success mb-3" name="update" value="Update">
         </div>
     </form>
