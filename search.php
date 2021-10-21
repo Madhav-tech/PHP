@@ -12,7 +12,7 @@
             <!-- First Blog Post -->
             <?php
             $query = "";
-            $count=0;
+            $count = 0;
             if (isset($_POST["submit"])) {
                 $search = $_POST["search"];
                 $query = "Select * from posts where post_tags LIKE '%$search%'";
@@ -50,16 +50,18 @@
                         <p><?php echo  $post_content ?></p>
                         <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                         <hr>
-            <?php } 
+            <?php }
                 } //while loop ended 
-            } 
-            if($row_count ==0 || $count ===0){
+            }
+            if ($row_count == 0 || $count === 0) {
                 echo "<h3>No post found</h3><br>";
             }
             ?>
         </div>
-        <!-- Blog Sidebar Widgets Column -->
-        <?php include "include/sidebar.php" ?>
+        <div class="col-md-4" style="height: 100%;">
+            <!-- Blog Sidebar Widgets Column -->
+            <?php include "include/sidebar.php" ?>
+        </div>
     </div>
     <!-- /.row -->
     <hr>

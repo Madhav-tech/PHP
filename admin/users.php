@@ -15,10 +15,10 @@ if (isset($_GET["delete_user_id"])) {
 if (isset($_POST["update_user"])) {
 
     $user_id = $_SESSION['update_user_id'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $role = $_POST['role'];
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $role = mysqli_real_escape_string($connection, $_POST['role']);
 
     $user_image = "";
 
@@ -26,7 +26,7 @@ if (isset($_POST["update_user"])) {
     if (!empty($_FILES['image']['name'])) {
         $user_image = $_FILES['image']['name'];
         $user_image_path = $_FILES['image']['tmp_name'];
-        move_uploaded_file($user_image_temp, "../image/$user_image");
+        move_uploaded_file($user_image_path, "../image/$user_image");
     } else {
 
         //if no want to update image search existing image name
@@ -40,7 +40,7 @@ if (isset($_POST["update_user"])) {
     }
 
     $query  = "UPDATE users SET firstname = '$firstname', lastname = '$lastname' , ";
-    $query .= "email = '$email', role = '$role' ";
+    $query .= "email = '$email', role = '$role', user_image = '$user_image' ";
     $query .=  "where user_id = '$user_id'";
 
     $update_result = mysqli_query($connection, $query);
@@ -66,7 +66,7 @@ if (isset($_POST["update_user"])) {
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
-                    <h1 class="page-header"> Welcome Admin <small>Users</small> </h1>
+                    <h1 class="page-header"> Welcome Admin <small> <?= $username ?></small> </h1>
 
                     <div class="text-danger"> <?= $msg ?></div>
                     <?php
@@ -81,6 +81,9 @@ if (isset($_POST["update_user"])) {
                             break;
                         case "update":
                             include "users/UpdateUser.php";
+                            break;
+                        case "details":
+                            include "users/profile.php";
                             break;
                         default:
                             include "users/AllUsers.php";

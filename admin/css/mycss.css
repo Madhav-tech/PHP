@@ -9,6 +9,7 @@ body {
     rgb(47, 235, 63,0.8)
   );
   height: 100%;
+  width: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,4 +23,69 @@ nav {
   );
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: black;
+}
+
+
+#cat_card1 {
+  background: #7ce923;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(19, 10, 10, 0.65);
+  height: 34%;
+  margin: 2rem auto 2rem auto;
+  width: 100%;
+}
+#cat_card2 {
+  background: #f8baba;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(19, 10, 10, 0.65);
+  height: 30%;
+  margin: 2rem auto 4rem auto;
+  width: 100%;
+}
+
+#card {
+  background: #7ce21d;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(19, 10, 10, 0.65);
+  height: 80%;
+  margin: 2rem auto 4rem auto;
+  width: 100%;
+}
+#card-content {
+  padding: 12px 44px;
+}
+#card-title {
+  font-family: "Raleway Thin", sans-serif;
+  letter-spacing: 4px;
+  padding-bottom: 23px;
+  padding-top: 13px;
+  text-align: center;
+}
+
+#submit-btn {
+  background: -webkit-linear-gradient(right, #14df2f, #2dbd6e);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  margin: 0 auto;
+ 
+  transition: 0.25s;
+  width: 153px;
+}
+
+.form {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  background: #fbfbfb;
+  border: none;
+  outline: none;
+  padding-top: 14px;
 }

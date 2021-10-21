@@ -50,7 +50,7 @@ if (isset($_GET["draft_comment_id"])) {
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
-                    <h1 class="page-header"> Welcome Admin <small>Author</small> </h1>
+                    <h1 class="page-header"> Welcome Admin <small> <?= $username ?></small> </h1>
 
                     <div class="text-danger"> <?= $msg ?></div>
                     <?php
@@ -67,7 +67,7 @@ if (isset($_GET["draft_comment_id"])) {
                             //include "include/UpdatePost.php";
                             break;
                         default:
-                            include "include/AllComments.php";
+                            include "comments/AllComments.php";
                             break;
                     }
                     ?>

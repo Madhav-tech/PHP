@@ -1,7 +1,11 @@
-<?php include "include/header.php" ?>
-<!-- Navigation -->
-
-<!-- Page Content -->
+<?php include "include/header.php";
+if (isset($_GET['source'])) {
+    $source = $_GET['source'];
+    if ($source == 'false') {
+        echo "<div class = 'text-center p-2'><h4 id='error'>Unauthorized Access</h4><span>Login with admin account</span></div>";
+    }
+}
+?>
 <div class="container">
 
     <div class="row">
@@ -25,7 +29,7 @@
                 $post_content = $row["post_content"];
                 $post_image = $row["post_image"];
                 $post_status = $row["post_status"];
-                
+
                 if ($post_status === "Approved") {
                     $count++;
             ?>
@@ -41,18 +45,21 @@
                     <img class="img-responsive" src="image/<?php echo $post_image;  ?>" width="700" height="300" alt="">
                     <hr>
                     <p><?php echo  substr($post_content, 0, 60) ?><strong> . . . .</strong></p>
-                    <a class="btn btn-primary" href="postDetails.php?post_id=<?= $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-primary" href="postDetails.php?post_id=<?php echo $post_id ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <hr>
             <?php }
             } //while loop ended
-            if($count ===0){
+            if ($count === 0) {
                 echo "<h3>No Post Found</h3>";
-            } 
+            }
             ?>
         </div>
-        <!-- Blog Sidebar Widgets Column -->
-        <?php include "include/sidebar.php" ?>
+        <div class="col-md-4" >
+
+            <?php include "include/sidebar.php" ?>
+        </div>
     </div>
     <!-- /.row -->
     <hr>
-    <?php include "include/footer.php" ?>
+</div>
+<?php include "include/footer.php" ?>

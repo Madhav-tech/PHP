@@ -1,14 +1,18 @@
-<?php ?>
-<div class="col-md-4 bg-light ">
-    <!-- Blog Search Well -->
-    <div class="well -3">
-       
-    </div>
-    <!-- Blog Categories Well -->
-    <div class="well p-3">
-        <h4>Blog Categories</h4>
-        <div class="row">
-            <div class="col-lg-12">
+<!-- Blog Categories Well -->
+<div class="well bg-light rounded p-3" id="side-card">
+    <div class="row">
+        <div class="mb-3">
+            <form class="" action="search.php" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control mb-3" name=" search" placeholder="Blog Search">
+                </div>
+                <button class="form-control btn btn-success" type="submit" name="submit">search</button>
+
+            </form>
+        </div>
+        <div class=" mt-3 ">
+            <h4>Blog Categories</h4>
+            <div class="col-lg-12 ">
                 <ul class="list-unstyled">
                     <li><a href='index.php'>All</a> </li>
                     <?php
@@ -26,8 +30,5 @@
         </div>
         <!-- /.row -->
     </div>
-
-    <!-- Side Widget Well -->
-    <?php include "include/sidewell.php" ?>
 
 </div>

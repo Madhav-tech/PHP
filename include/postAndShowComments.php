@@ -2,27 +2,21 @@
 if (isset($_POST['submit_comment'])) {
 
     $comment_post_id = $_GET["post_id"];
-
-    $comment_author = $_POST["comment_author"];
-    $comment_email = $_POST["comment_email"];
-    $comment_content = $_POST["comment_content"];
+    $comment_author =  mysqli_real_escape_string($connection, $_POST["comment_author"]);
+    $comment_email =  mysqli_real_escape_string($connection, $_POST["comment_email"]);
+    $comment_content =  mysqli_real_escape_string($connection, $_POST["comment_content"]);
 
     $query = "Insert into comments (comment_post_id,comment_author,comment_email, comment_content) ";
     $query .= " Value($comment_post_id, '$comment_author', '$comment_email' ,'$comment_content')";
-
     $res = mysqli_query($connection, $query);
     if ($res) {
-       $query = "Update posts Set post_comment_count = post_comment_count + 1 where post_id = '$comment_post_id'";
-       mysqli_query($connection, $query);
-    }
-    else{
+        $query = "Update posts Set post_comment_count = post_comment_count + 1 where post_id = '$comment_post_id'";
+        mysqli_query($connection, $query);
+    } else {
         die(mysqli_error($connection));
     }
 }
-
-
 ?>
-
 <div class="well">
     <h4>Leave a Comment:</h4>
     <form role="form" action="" method="POST">
@@ -62,7 +56,6 @@ if ($no_of_row > 0) {
         //show only approved comments
         if ($comment_status === "Approved") {
 
-
 ?>
             <div class="row bg-light p-2">
 
@@ -76,7 +69,6 @@ if ($no_of_row > 0) {
                         <?= $comment_content ?>
                     </div>
                 </div>
-
             </div>
 
 <?php }

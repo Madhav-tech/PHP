@@ -41,25 +41,24 @@ if (isset($_POST["update"]) && trim($_POST["cat_title"])) {
 
                 <h1 class="page-header">
                     Welcome Admin
-                    <small>Author</small>
+                    <small> <?= $username ?></small>
                 </h1>
 
                 <div class="col-lg-5">
                     <!-- Add Category -->
-                    <?php include "include/AddCategory.php" ?>
+                    <?php include "category/AddCategory.php" ?>
                     <?= $msg ?>
-                    <hr>
                     <!-- Update Category -->
                     <?php
                     if (isset($_GET['update_cat_id'])) {
-                        include "include/UpdateCategory.php";
+                        include "category/UpdateCategory.php";
                     }
                     ?>
                 </div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-5">
                     <!-- Print  Category table -->
-                    <?php include "include/ShowCategories.php" ?>
+                    <?php include "category/ShowCategories.php" ?>
                 </div>
 
 

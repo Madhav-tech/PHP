@@ -1,5 +1,14 @@
 <?php include "DBFunction/GetAllCategory.php";
-include "DBFunction/EntityClass/CategoryEntity.php"; ?>
+include "DBFunction/EntityClass/CategoryEntity.php";
+$home = "";
+$loginText = "./logout.php";
+$text = "Logout";
+if (!isset($_SESSION['valid']) || !$_SESSION['valid']) {
+    $home = "cms";
+    $loginText = "login.php";
+    $text = "Login";
+}
+?>
 <nav class="navbar navbar-light navbar-expand-lg  bg-light">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,11 +39,14 @@ include "DBFunction/EntityClass/CategoryEntity.php"; ?>
                 <li class='nav-item '><a class='nav-link' href='admin'>Admin</a> </li>
                 <li class='nav-item '><a class='nav-link' href='#'>Help</a> </li>
             </ul>
-            <form class="d-flex" action="search.php" method="post">
-                <input type="text" class="form-control me-2"" name="search" placeholder="Blog Search">
-                <button class="btn btn-success" type="submit" name="submit">search</button>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <?php
+                if (isset($_SESSION['name'])) {
+                    echo "<li class='nav-item'><a href='#' class='nav-link'><strong>Welcome {$_SESSION['name']}</strong></a></li>";
+                } ?>
+                <li class='nav-item'><a href='<?= $loginText ?>' class='nav-link btn btn-sm btn-outline-warning'><?= $text ?> </a></li>
+            </ul>
 
-            </form>
         </div>
         <!-- /.navbar-collapse -->
     </div>

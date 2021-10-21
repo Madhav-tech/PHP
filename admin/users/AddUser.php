@@ -1,25 +1,26 @@
 <?php
 $msg = '';
 if (isset($_POST['create_user'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $role = $_POST['role'];
+    $firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $role = mysqli_real_escape_string($connection, $_POST['role']);
 
     $user_image = $_FILES['image']['name'];
     $user_image_temp = $_FILES['image']['tmp_name'];
 
     $query = "INSERT INTO users(username,firstname, lastname, email, password,user_image,role) ";
     $query .= "VALUE('$username','$firstname', '$lastname', '$email','$password', '$user_image','$role')";
-    
-    $insert_result = mysqli_query($connection,$query);
+
+    $insert_result = mysqli_query($connection, $query);
     if (!$insert_result) {
         die(mysqli_error($connection));
     } else {
         move_uploaded_file($user_image_temp, "../image/$user_image");
         $msg = "User Created";
+        header("Location:users.php");
     }
 }
 
@@ -78,7 +79,7 @@ if (isset($_POST['create_user'])) {
         </div>
         <div class="text-center">
             <input class="btn btn-primary" type="submit" value="Submit" name="create_user">
-        <div>
+            <div>
     </form>
     <div class="text-danger"> <?= $msg ?></div>
 </div>

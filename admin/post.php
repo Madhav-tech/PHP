@@ -16,12 +16,12 @@ if (isset($_GET["delete_post_id"])) {
 
 //update a post
 if (isset($_POST["update_post"])) {
-    $post_id = $_POST["post_id"];
-    $post_title = $_POST['post_title'];
-    $post_category_id = $_POST['post_category_id'];
-    $post_author = $_POST['post_author'];
-    $post_content = $_POST['post_content'];
-    $post_tags = $_POST['post_tags'];
+    $post_id = mysqli_real_escape_string($connection,$_POST["post_id"]);
+    $post_title = mysqli_real_escape_string($connection,$_POST['post_title']);
+    $post_category_id = mysqli_real_escape_string($connection,$_POST['post_category_id']);
+    $post_author = mysqli_real_escape_string($connection,$_POST['post_author']);
+    $post_content = mysqli_real_escape_string($connection,$_POST['post_content']);
+    $post_tags = mysqli_real_escape_string($connection,$_POST['post_tags']);
     $post_date =  date("Y-m-d");
     $post_image = "";
 
@@ -29,7 +29,7 @@ if (isset($_POST["update_post"])) {
     if (!empty($_FILES['image']['name'])) {
         $post_image = $_FILES['image']['name'];
         $post_image_path = $_FILES['image']['tmp_name'];
-        move_uploaded_file($post_image_temp, "../image/$post_image");
+        move_uploaded_file($post_image_path, "../image/$post_image");
     } else {
 
         //if no want to update image search existing image name
@@ -75,7 +75,7 @@ if (isset($_GET["approve_post_id"])) {
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12 ">
-                    <h1 class="page-header"> Welcome Admin <small>Author</small> </h1>
+                    <h1 class="page-header"> Welcome Admin <small> <?= $username ?></small> </h1>
                     <div class="text-danger"> <?= $msg ?></div>
                     <?php
                     if (isset($_GET['source'])) {
@@ -85,13 +85,13 @@ if (isset($_GET["approve_post_id"])) {
                     }
                     switch ($source) {
                         case "add_post":
-                            include "include/AddPost.php";
+                            include "posts/AddPost.php";
                             break;
                         case "update":
-                            include "include/UpdatePost.php";
+                            include "posts/UpdatePost.php";
                             break;
                         default:
-                            include "include/AllPost.php";
+                            include "posts/AllPost.php";
                             break;
                     }
                     ?>
