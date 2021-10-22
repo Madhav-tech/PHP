@@ -2,12 +2,7 @@
 if (!$_SESSION['valid'] || $_SESSION['role'] !== "admin") {
     header("Location:../index.php?source=false");
 }
-
-
-
 ?>
-
-
 <div class="row ">
     <div class="p-3">
         <div class="container">

@@ -24,11 +24,11 @@ $text = "Logout";
 
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
             <ul class="navbar-nav me-auto">
-                <li class='nav-item <?php echo str_contains($_SERVER["PHP_SELF"], "index.php") ? "active" : ""; ?>'>
-                    <a class='nav-link' href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <li class='nav-item'>
+                    <a class='nav-link <?php echo str_contains($_SERVER["PHP_SELF"], "index.php") ? "active" : ""; ?>' href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li class=' nav-item dropdown'>
-                    <a class='nav-link dropdown-toggle' href="#" data-bs-toggle="collapse" data-bs-target="#post"><i class="fa fa-fw fa-arrows-v"></i> Post </i></a>
+                    <a class='nav-link dropdown-toggle <?php echo str_contains($_SERVER["PHP_SELF"], "post.php") ? "active" : "";?>' href="#" data-bs-toggle="collapse" data-bs-target="#post"><i class="fa fa-fw fa-arrows-v"></i> Post </i></a>
                     <ul id="post" class="dropdown-menu p-2">
                         <li class="nav-item mb-2">
                             <?php $source = '' ?>
@@ -40,15 +40,15 @@ $text = "Logout";
                         </li>
                     </ul>
                 </li>
-                <li class='nav-item <?php echo str_contains($_SERVER["PHP_SELF"], "categories.php") ? "active" : ""; ?>'>
-                    <a class='nav-link' href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
+                <li class='nav-item '>
+                    <a class='nav-link <?php echo str_contains($_SERVER["PHP_SELF"], "categories.php") ? "active" : ""; ?>' href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
                 </li>
 
-                <li class='nav-item <?php echo str_contains($_SERVER["PHP_SELF"], "comments.php") ? "active" : ""; ?>'>
-                    <a class='nav-link' href="comments.php"><i class="fa fa-fw fa-file"></i> Comment</a>
+                <li class='nav-item '>
+                    <a class='nav-link <?php echo str_contains($_SERVER["PHP_SELF"], "comments.php") ? "active" : ""; ?>' href="comments.php"><i class="fa fa-fw fa-file"></i> Comment</a>
                 </li>
-                <li class='<?php echo str_contains($_SERVER["PHP_SELF"], "users") ? "active" : ""; ?>'>
-                    <a class='nav-link dropdown-toggle' href="#" data-bs-toggle="collapse" data-bs-target="#users"><i class="fa fa-fw fa-arrows-v"></i> Users</a>
+                <li class=''>
+                    <a class='nav-link dropdown-toggle <?php echo str_contains($_SERVER["PHP_SELF"], "users") ? "active" : ""; ?>' href="#" data-bs-toggle="collapse" data-bs-target="#users"><i class="fa fa-fw fa-arrows-v"></i> Users</a>
                     <ul id="users" class="dropdown-menu p-2">
                         <li class="nav-item mb-2">
                             <?php $source = '' ?>
@@ -60,9 +60,9 @@ $text = "Logout";
                         </li>
                     </ul>
                 </li>
-                <li class='nav-item <?php //echo str_contains($_SERVER["PHP_SELF"], "index.php") ? "active" : ""; 
-                                    ?>'>
-                    <a class='nav-link' href="users.php?source=details"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+                <li class='nav-item '>
+                    <a class='nav-link ' href="users.php?source=details">
+                        <i class="fa fa-fw fa-dashboard"></i> Profile</a>
                 </li>
             </ul>
         </div>

@@ -66,8 +66,8 @@ $catResult = $categoriesTableObj->getAllCategories($connection);
                 </div>
                 <div class="col-md-12 ">
                     <div class="form-group mb-3">
-                        <label for="">Content</label>
-                        <textarea class="form-control" rows="5" name="post_content" required></textarea>
+                        <label for="example">Content</label>
+                        <textarea class="form-control" rows="10" name="post_content" id="example" required></textarea>
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Tags</label>

@@ -1,6 +1,8 @@
 <?php include "include/header.php";
 include "../DBFunction/UsersDb.php";
-
+if (!$_SESSION['valid'] || $_SESSION['role'] !== "admin") {
+    header("Location:../login.php?source=false");
+}
 
 $msg = "";
 // delete a User

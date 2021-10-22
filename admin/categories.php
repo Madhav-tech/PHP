@@ -1,7 +1,9 @@
 <?php include "include/header.php";
 include_once "../DBFunction/GetAllCategory.php";
 include_once "../DBFunction/EntityClass/CategoryEntity.php";
-
+if (!$_SESSION['valid'] || $_SESSION['role'] !== "admin") {
+    header("Location:../login.php?source=false");
+}
 
 $msg = "";
 

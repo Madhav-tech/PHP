@@ -20,9 +20,6 @@ if (isset($_GET['update_post_id'])) {
 }
 $catTable = new CategoryTable();
 $categories_data = $catTable->getAllCategories($connection);
-
-
-
 ?>
 
 <div id="card">
@@ -47,7 +44,6 @@ $categories_data = $catTable->getAllCategories($connection);
                             <!-- <input type="text" class="form-control" name="post_category_id" required> -->
                             <select name="post_category_id" id="post_category_id" class="form-control">
                                 <?php
-
                                 while ($row = mysqli_fetch_assoc($categories_data)) {
                                     $cat_id = $row['cat_id'];
                                     $cat_title = $row['cat_title'];
@@ -57,7 +53,6 @@ $categories_data = $catTable->getAllCategories($connection);
                                         echo "<option  value=$cat_id>$cat_title</option>";
                                     }
                                 }
-
                                 ?>
                             </select>
                         </div>
@@ -79,8 +74,8 @@ $categories_data = $catTable->getAllCategories($connection);
                 </div>
                 <div class="col-md-12 ">
                     <div class="form-group mb-3">
-                        <label for="">Content</label>
-                        <textarea class="form-control" rows="5" name="post_content" required><?= $post_content ?></textarea>
+                        <label for="example">Content</label>
+                        <textarea class="form-control" rows="5" name="post_content" required id="example"><?= $post_content ?></textarea>
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Tags</label>

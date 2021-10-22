@@ -38,6 +38,14 @@ if (!isset($_SESSION['valid']) || !$_SESSION['valid']) {
                 </li>
                 <li class='nav-item '><a class='nav-link' href='admin'>Admin</a> </li>
                 <li class='nav-item '><a class='nav-link' href='#'>Help</a> </li>
+                <?php
+
+                //edit post for admin
+                if (isset($_SESSION['valid']) && $_SESSION['role'] === "admin" && isset($_GET['post_id'])) {
+                    $post_id = $_GET['post_id'];
+                    echo "<li class='nav-item'><a class='nav-link' href='admin/post.php?source=update&update_post_id=$post_id'>Edit Post</a></li>";
+                }
+                ?>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <?php

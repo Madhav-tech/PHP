@@ -2,7 +2,8 @@
 if (isset($_GET['source'])) {
     $source = $_GET['source'];
     if ($source == 'false') {
-        echo "<div class = 'text-center p-2'><h4 id='error'>Unauthorized Access</h4><span>Login with admin account</span></div>";
+        header("Location:login.php?source=false");
+       
     }
 }
 ?>

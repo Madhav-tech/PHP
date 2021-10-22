@@ -14,10 +14,10 @@
                             <?php
                             $query = "Select COUNT(post_id) as count from posts";
                             $result = mysqli_query($connection, $query);
-                            $post_count = mysqli_fetch_assoc($result);
-                            echo $post_count['count'];
+                            $row = mysqli_fetch_assoc($result);
+                            $post_count = $row['count'];
+                            echo $post_count;
                             ?>
-
                         </div>
                         <div><strong>Posts</strong></div>
                     </div>
@@ -27,7 +27,6 @@
                 <div class="card-footer bg-light">
                     <span class="pull-left ">View Details</span>
                     <span class="text-end"><i class="bi bi-arrow-right-circle-fill"></i></span>
-
                 </div>
             </a>
         </div>
@@ -46,8 +45,9 @@
                             <?php
                             $query = "Select COUNT(comment_id) as count from comments";
                             $result = mysqli_query($connection, $query);
-                            $count = mysqli_fetch_assoc($result);
-                            echo $count['count'];
+                            $row = mysqli_fetch_assoc($result);
+                            $comments_count = $row['count'];
+                            echo $comments_count;
                             ?>
                         </div>
                         <div><strong>Comments</strong></div>
@@ -77,8 +77,9 @@
                             <?php
                             $query = "Select COUNT(user_id) as count from users";
                             $result = mysqli_query($connection, $query);
-                            $count = mysqli_fetch_assoc($result);
-                            echo $count['count'];
+                            $row = mysqli_fetch_assoc($result);
+                            $users_count = $row['count'];
+                            echo $users_count;
                             ?>
                         </div>
                         <div><strong> Users</strong></div>
@@ -108,8 +109,9 @@
                             <?php
                             $query = "Select COUNT(cat_id) as count from categories";
                             $result = mysqli_query($connection, $query);
-                            $count = mysqli_fetch_assoc($result);
-                            echo $count['count'];
+                            $row = mysqli_fetch_assoc($result);
+                            $cat_count = $row['count'];
+                            echo $cat_count;
                             ?>
                         </div>
                         <div><strong>Categories</strong></div>
@@ -126,39 +128,4 @@
         </div>
     </div>
 </div>
-
-<div class="row ">
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['bar']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Data', 'Count'],
-                ['post', 1000],
-                ['Comment', 1900],
-                ['Users', 1900],
-                ['Categories', 1900]
-
-            ]);
-
-            var options = {
-                chart: {
-                    title: 'Company Performance',
-                    subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-    </script>
-
-    <div class="p-3 bg-light rounded">
-        <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
-    </div>
-
-</div>
+<?php include "chart.php";?>
