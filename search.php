@@ -19,7 +19,11 @@
             } elseif (isset($_GET["cat_id"])) {
                 $id = $_GET["cat_id"];
                 $query = "Select * from posts where post_category_id = $id";
-            }
+             }
+             // else if (isset($_GET["text"])) {
+            //     $search = $_GET["text"];
+            //     $query = "Select * from posts where post_tags LIKE '%$search%'";
+            // }
             $posts_data = mysqli_query($connection, $query);
             $row_count = mysqli_num_rows($posts_data);
             if ($row_count > 0) {
@@ -35,6 +39,7 @@
 
                     if ($post_status === "Approved") {
                         $count++;
+
             ?>
                         <h2>
                             <a href="postDetails.php?post_id=<?= $post_id ?>"><?php echo  $post_title ?> </a>

@@ -4,10 +4,10 @@
         <div class="mb-3">
             <form class="" action="search.php" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control mb-3" name=" search" placeholder="Blog Search">
+                    <input id="search" type="text" class="form-control mb-3" name=" search" placeholder="Blog Search" onkeyup="showCategoryHint(this.value);">
                 </div>
+                <div id="hint"></div>
                 <button class="form-control btn btn-success" type="submit" name="submit">search</button>
-
             </form>
         </div>
         <div class=" mt-3 ">
@@ -30,5 +30,19 @@
         </div>
         <!-- /.row -->
     </div>
-
 </div>
+<script>
+    function showCategoryHint(text) {
+        if (text.length === 0) {
+            document.getElementById("hint").innerHTML = "";
+        } else {
+            const httpRequest = new XMLHttpRequest();
+            httpRequest.onload = function() {
+
+                document.getElementById("hint").innerHTML = this.responseText;
+            }
+            httpRequest.open("GET", "include/getCategoryHint.php?text=" + text);
+            httpRequest.send();
+        }
+    }
+</script>

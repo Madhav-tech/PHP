@@ -3,6 +3,7 @@ include "DBFunction/UsersDb.php";
 session_start();
 $db = new DbConfig();
 $connection = $db->getConnection();
+$_SESSION['connection'] = $connection;
 ?>
 <!DOCTYPE html>
 <html lang="en">

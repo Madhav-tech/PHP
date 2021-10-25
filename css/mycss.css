@@ -85,6 +85,6 @@ nav {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 8px rgba(19, 10, 10, 0.65);
-  height: 430px;
+  height: 100%;
   width: 400px;
 }

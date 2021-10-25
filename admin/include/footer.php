@@ -28,7 +28,7 @@
             });
         }
     });
-    
+
     // $("#selectAllBox").click(function() {
     //     $('input:checkbox').not(this).prop('checked', this.checked);
     // });
@@ -36,3 +36,4 @@
 </body>
 
 </html>
+

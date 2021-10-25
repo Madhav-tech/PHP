@@ -41,9 +41,11 @@ if (!isset($_SESSION['valid']) || !$_SESSION['valid']) {
                 <?php
 
                 //edit post for admin
-                if (isset($_SESSION['valid']) && $_SESSION['role'] === "admin" && isset($_GET['post_id'])) {
-                    $post_id = $_GET['post_id'];
-                    echo "<li class='nav-item'><a class='nav-link' href='admin/post.php?source=update&update_post_id=$post_id'>Edit Post</a></li>";
+                if (isset($_SESSION['valid']) && isset($_SESSION['role']) && isset($_GET['post_id'])) {
+                    if ($_SESSION['role'] === "admin") {
+                        $post_id = $_GET['post_id'];
+                        echo "<li class='nav-item'><a class='nav-link' href='admin/post.php?source=update&update_post_id=$post_id'>Edit Post</a></li>";
+                    }
                 }
                 ?>
             </ul>
